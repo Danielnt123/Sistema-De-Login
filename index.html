@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema de Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <div class="wrapper">
+    <div class="container">
+
+      <!-- ========== TELA: LOGIN ========== -->
+      <div class="screen active" id="screen-login">
+        <div class="header">
+          
+          <h2>Bem-vindo de volta</h2>
+          <p>Faça login para continuar</p>
+        </div>
+
+        <form id="form-login" onsubmit="handleLogin(event)">
+          <div class="field">
+            <span class="icon">👤</span>
+            <input type="text" id="login-user" placeholder="Nome de usuário" required />
+          </div>
+          <div class="field">
+            <span class="icon">🔒</span>
+            <input type="password" id="login-pass" placeholder="Senha" required />
+          </div>
+          <div class="field">
+            <span class="chevron">▼</span>
+            <select id="login-type">
+              <option value="aluno">Aluno</option>
+              <option value="funcionario">Funcionário</option>
+              <option value="administrador">Administrador</option>
+             
+              
+            </select>
+          </div>
+          <button class="btn" type="submit">Entrar</button>
+        </form>
+
+        <div class="links">
+          <a onclick="showScreen('recover')">Esqueceu sua senha?</a>
+          <p>Não tem uma conta? <a onclick="showScreen('register')"><strong>Cadastre-se</strong></a></p>
+        </div>
+      </div>
+
+      <!-- ========== TELA: CADASTRO ========== -->
+      <div class="screen" id="screen-register">
+        <div class="header-row">
+          <button class="back-btn" onclick="showScreen('login')">&#8592;</button>
+          <div class="titles">
+            <h2>Criar conta</h2>
+            <p>Preencha os dados abaixo</p>
+          </div>
+        </div>
+
+        <form id="form-register" onsubmit="handleRegister(event)">
+          <div class="field">
+            <span class="icon">👤</span>
+            <input type="text" id="reg-user" placeholder="Nome de usuário" required />
+          </div>
+          <div class="field">
+            <span class="icon">✉️</span>
+            <input type="email" id="reg-email" placeholder="Email" required />
+          </div>
+          <div class="field">
+            <span class="icon">📱</span>
+            <input type="tel" id="reg-whatsapp" placeholder="Número de WhatsApp" required />
+          </div>
+          <div class="field">
+            <span class="icon">🔒</span>
+            <input type="password" id="reg-pass" placeholder="Senha" required />
+          </div>
+          <div class="field">
+            <span class="icon">🔒</span>
+            <input type="password" id="reg-confirm" placeholder="Confirmar senha" required />
+            <div class="error-msg" id="pass-error">As senhas não coincidem</div>
+          </div>
+          <div class="field">
+            <span class="chevron">▼</span>
+            <select id="reg-type">
+              <option value="aluno">Aluno</option>
+              <option value="funcionario">Funcionário</option>
+              <option value="administrador">Administrador</option>
+              
+             
+            </select>
+          </div>
+          <button class="btn" type="submit">Criar conta</button>
+        </form>
+
+        <div class="links">
+          <p>Já tem uma conta? <a onclick="showScreen('login')"><strong>Fazer login</strong></a></p>
+        </div>
+      </div>
+
+      <!-- ========== TELA: RECUPERAR SENHA ========== -->
+      <div class="screen" id="screen-recover">
+        <div class="header-row">
+          <button class="back-btn" onclick="showScreen('login')">&#8592;</button>
+          <div class="titles">
+            <h2>Recuperar senha</h2>
+            <p>Enviaremos instruções por email</p>
+          </div>
+        </div>
+
+        <form id="form-recover" onsubmit="handleRecover(event)">
+          <div class="field">
+            <span class="icon">✉️</span>
+            <input type="email" id="rec-email" placeholder="Digite seu email" required />
+          </div>
+          <button class="btn" type="submit">📨 &nbsp;Enviar instruções</button>
+        </form>
+
+        <div class="success-box" id="recover-success">
+          <div class="success-icon">✅</div>
+          <h3>Email enviado!</h3>
+          <p>Verifique sua caixa de entrada e siga as instruções para redefinir sua senha.</p>
+          <a onclick="showScreen('login')">Voltar ao login</a>
+        </div>
+
+        <div class="links" id="recover-links">
+          <p>Lembrou sua senha? <a onclick="showScreen('login')"><strong>Fazer login</strong></a></p>
+        </div>
+      </div>
+
+    </div>
+    <footer>© 2026 Sistema de Gestão. Todos os direitos reservados.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
