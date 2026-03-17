@@ -15,10 +15,10 @@ function togglePassword(inputId, element) {
     const input = document.getElementById(inputId);
     if (input.type === "password") {
         input.type = "text";
-        element.textContent = "🙈";
+        element.textContent = "🙈 👁️";
     } else {
         input.type = "password";
-        element.textContent = "👁️";
+        element.textContent = " 🙈 👁️";
     }
 }
 
